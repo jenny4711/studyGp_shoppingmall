@@ -1,0 +1,42 @@
+.loginIcon{
+ 
+  display:flex;
+ justify-content: flex-end;
+ align-items: flex-end;
+ 
+  
+
+
+}
+
+.NavBar{
+  display: flex;
+  justify-content: center;
+}
+.menuList{
+  list-style: none;
+  display:flex;
+  flex-direction: row;
+}
+.menuList li{
+  margin:6px;
+}
+.menuArea{
+  display:flex;
+  justify-content: center;
+  width:100vw;
+  margin-left:250px;
+}
+.input{
+  border:none;
+  border-bottom:2px solid black;
+  width:150px;
+  
+}
+.searchSec{
+  display: flex;
+  flex-direction: column;
+  margin-left:400px;
+  
+  
+}
