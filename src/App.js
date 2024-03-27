@@ -18,13 +18,15 @@ import PrivateRoute from './routes/PrivateRoute';
 
 function App() {
   const [logIn,setLogIn]=useState(false)
+  const [username,setUsername]=useState("")
+const [pw,setPw]=useState("")
 
   return (
     <div className="App">
-      <NavBar logIn={logIn} setLogIn={setLogIn}/>
+      <NavBar logIn={logIn} setLogIn={setLogIn} setUsername={setUsername} setPw={setPw}/>
       <Routes>
         <Route path="/" element={<ProductAll/>}/>
-        <Route path="/login" element={<Login logIn={logIn} setLogIn={setLogIn}/>}/>
+        <Route path="/login" element={<Login username={username} pw={pw} setUsername={setUsername} setPw={setPw} logIn={logIn} setLogIn={setLogIn}/>}/>
         <Route path="/product/:id" element={<PrivateRoute logIn={logIn}/>}/>
       </Routes>
     </div>

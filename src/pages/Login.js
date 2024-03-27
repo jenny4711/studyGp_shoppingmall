@@ -1,9 +1,8 @@
 import React ,{useState}from 'react';
 import {  useNavigate } from 'react-router-dom';
 import './Login.css'
-const Login = ({logIn,setLogIn}) => {
-const [username,setUsername]=useState("")
-const [pw,setPw]=useState("")
+const Login = ({username,pw,setUsername,setPw,logIn,setLogIn}) => {
+
 const[notice,setNotice]=useState("")
 const navigate = useNavigate()
 const handleLogin=(e)=>{

@@ -11,6 +11,9 @@ const NavBar = ({logIn,setLogIn}) => {
     if(evt.target.text === '로그아웃'){
       setLogIn(false)
       navigation('/login')
+    }else{
+     
+      navigation('/login')
     }
    
   }
