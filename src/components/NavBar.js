@@ -30,7 +30,7 @@ const NavBar = ({logIn,setLogIn}) => {
 
 {/* ---------------------------------------------------- */}
       <div className='NavBar'>
-        <img width={200}  src='https://www.hm.com/entrance/assets/bundle/img/HM-Share-Image.jpg'/>
+       <Link to='/'><img width={200}  src='https://www.hm.com/entrance/assets/bundle/img/HM-Share-Image.jpg'/></Link> 
       </div>
 {/* ------------------------------------------------------- */}
       <div className={!logIn?'none':'menuArea'}>

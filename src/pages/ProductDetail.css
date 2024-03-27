@@ -1,0 +1,17 @@
+.product_img{
+  display:flex;
+  justify-content: flex-end;
+}
+
+.addBtn{
+  background-color:rgb(217, 31, 31) ;
+  color:white;
+  width:630px;
+  border-radius: 50px;
+  margin-top:20px;
+  border-color:rgb(217, 31, 31);
+}
+.addBtn:active{
+  background-color:white;
+  color:black;
+}

@@ -7,6 +7,10 @@ const getAllList  = async()=>{
   return await axios.get(url)
 }
 
+const getDetail = async(id)=>{
+  let url=`https://studygp-shoppingmallbk.onrender.com/api/product/${id}`
+  return await axios.get(url)
+}
 export const useAllProductQuery=()=>{
   return useQuery({
     queryKey:['allProduct'],
@@ -17,5 +21,16 @@ export const useAllProductQuery=()=>{
     }
 
 
+  })
+}
+
+export const useDetailProductQuery=(id)=>{
+  return useQuery({
+    queryKey:['detailProduct',id],
+    queryFn:()=>getDetail(id),
+    retry:1,
+    select:(data)=>{
+      return data.data
+    }
   })
 }
