@@ -1,13 +1,19 @@
 import React from 'react';
-
-const ProductCard = ({}) => {
+import './Product.css'
+import { useNavigate } from 'react-router-dom';
+const ProductCard = ({item}) => {
+  const navigate=useNavigate()
+  const showDetail=()=>{
+navigate(`/product/${item._id}`)
+  }
   return (
-    <div>
-      <img src='https://res.cloudinary.com/dabkrk09t/image/upload/v1696298646/zus1k3ifuc10uqczme2i.jpg'/>
-      <div>Conscious choice</div>
-      <div>title</div>
-      <div>amount</div>
-      <div>신제품</div>
+    <div className='ProductCard' onClick={showDetail}>
+      <img className='ProductCard_img'  src={item?.image[0]}/>
+      <div>{item?.category.includes("kids-all")?"Conscious choice":""}</div>
+      <div>{item?.name}</div>
+      <div>${item?.price}</div>
+      <div>{item?.category.length <3 ?"신제품":""}</div>
+      
     </div>
   );
 }

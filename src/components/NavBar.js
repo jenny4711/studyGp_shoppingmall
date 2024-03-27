@@ -1,17 +1,27 @@
 import React from 'react';
 import { Person ,Search} from 'react-bootstrap-icons';
-
+import { useNavigate ,Link} from 'react-router-dom';
 import './NavBar.css'
 import { menuList } from '../utils/menus';
-
-const NavBar = () => {
+import Login from '../pages/Login';
+const NavBar = ({logIn,setLogIn}) => {
+  const navigation=useNavigate()
+  const handleLogOut=(evt)=>{
+    evt.preventDefault();
+    if(evt.target.text === '로그아웃'){
+      setLogIn(false)
+      navigation('/login')
+    }
+   
+  }
+ 
   return (
     <div>
     {/* ------------------------------- */}
       <div>
-        <div className='loginIcon'>
+        <div  className='loginIcon'>
       <Person size={30}/>
-      로그인
+     <Link onClick={(evt)=>handleLogOut(evt)} className='loginBtn' to='/login'>{!logIn?'로그인':'로그아웃'}</Link>
       </div>
       </div>
 
@@ -20,7 +30,7 @@ const NavBar = () => {
         <img width={200}  src='https://www.hm.com/entrance/assets/bundle/img/HM-Share-Image.jpg'/>
       </div>
 {/* ------------------------------------------------------- */}
-      <div className='menuArea'>
+      <div className={!logIn?'none':'menuArea'}>
         
           <ul className='menuList'>
           {menuList.map(item=>(<li>{item}</li>))}

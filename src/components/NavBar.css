@@ -3,12 +3,12 @@
   display:flex;
  justify-content: flex-end;
  align-items: flex-end;
- 
+ cursor:pointer
   
-
-
 }
-
+.loginBtn{
+  color:black
+}
 .NavBar{
   display: flex;
   justify-content: center;
@@ -39,4 +39,9 @@
   margin-left:400px;
   
   
+}
+
+
+.none{
+  display: none;
 }

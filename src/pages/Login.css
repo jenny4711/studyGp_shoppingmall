@@ -1,0 +1,35 @@
+.Login{
+  height:50vh;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color:red;
+}
+.login-form{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border:20px solid rgb(217, 31, 31);
+  border-radius: 20px;
+  padding:60px;
+}
+.login_input{
+  border-color:rgb(217, 31, 31);
+  border-radius: 20px;
+}
+
+.loginSec-btn{
+  width:180px;
+  margin-top:10px;
+  background-color: rgb(217, 31, 31);
+  color:white;
+  border-color:rgb(217, 31, 31);
+  border-radius: 20px;
+}
+.loginSec-btn:active{
+  background-color: white;
+  color:red;
+  
+}

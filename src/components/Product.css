@@ -1,0 +1,17 @@
+.ProductCard_img{
+width:80%;
+margin-top:20px; 
+}
+.ProductCard:hover{
+  position:absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width:420px;
+ background-color: rgb(217, 31, 31);
+ color:white;
+  padding:10px;
+ 
+  border-radius: 50px;
+}
