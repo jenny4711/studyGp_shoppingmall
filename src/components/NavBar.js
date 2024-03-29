@@ -27,6 +27,19 @@ useEffect(()=>{
 },[search])
 
 
+const searchByWord = (event) => {
+  console.log(event.key); // 디버깅을 위해 어떤 키가 눌렸는지 출력
+  if (event.key === "Enter") {
+    event.preventDefault();
+    let keyword = event.target.value;
+    setSearch(keyword)
+    console.log('keyword', keyword);
+    // Enter 키 입력시 추가로 수행할 로직
+  }
+};
+
+
+
   const handleLogOut=(evt)=>{
     evt.preventDefault();
     if(evt.target.text === '로그아웃'){
@@ -78,17 +91,17 @@ useEffect(()=>{
              
               <Offcanvas.Body>
                 <Nav className="menuList">
-                {menuList.map(item=>(<Nav.Link>{item}</Nav.Link>))}
+                {menuList.map((item,idx)=>(<Nav.Link key={idx}>{item}</Nav.Link>))}
                  
                
                 </Nav>
-                <Form className="d-flex">
+                <Form   className="d-flex">
                   <Form.Control
-                    type="search"
-                    placeholder="Search"
+                    type="text"
+                    placeholder="Search!"
                     className="me-2 searchInput"
                     aria-label="Search"
-                    onChange={(evt)=>setSearch(evt.target.value)}
+                    onKeyDown={(event)=>searchByWord(event)}
                   />
                   <Button variant="outline-success">Search</Button>
                 </Form>

@@ -8,7 +8,9 @@ const ProductAll = () => {
   const [productList,setProductList]=useState([])
   const [query,setQuery]=useSearchParams();
   const {data}=useAllProductQuery()
-  let searchQuery = query.get("q") || []
+  let searchQuery = query.get("q") || null
+
+useEffect(()=>{},[])
 
   useEffect(()=>{
 
