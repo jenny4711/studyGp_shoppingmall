@@ -58,6 +58,7 @@ margin-top:10px;
 
 .searchInput{
   margin-left:150px;
+  border:1px solid red !important;
 }
 
 .navbar .container, .navbar .container-fluid, 
@@ -76,10 +77,18 @@ margin-top:10px;
   --bs-bg-opacity: 0;
 }
 
-
+.goBack{
+  display:none !important;
+  border:none !important;
+  background-color: white !important;
+  color:red !important;
+}
 @media(max-width:992px){
   .menuList{
     margin-left:10px;
+  }
+  .goBack{
+    display:flex !important;
   }
  
 }

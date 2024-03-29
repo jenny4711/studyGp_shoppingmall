@@ -51,7 +51,15 @@ const searchByWord = (event) => {
     }
    
   }
- 
+ const goBack=()=>{
+  const open=document.querySelector(".offcanvas-end")
+
+  if(open !== null){
+    console.log(open)
+    open.setAttribute('class','none')
+  
+  }
+ }
   return (
     <div>
     {/* ------------------------------- */}
@@ -67,29 +75,21 @@ const searchByWord = (event) => {
        <Link to='/'><img width={200}  src='https://www.hm.com/entrance/assets/bundle/img/HM-Share-Image.jpg'/></Link> 
       </div>
 {/* ------------------------------------------------------- */}
-      {/* <div className={!logIn?'none':'menuArea'}>
-        
-          <ul className='menuList'>
-          {menuList.map(item=>(<li>{item}</li>))}
-          </ul>
-        
-        <div className='searchSec'>
-          <Search size={20}/>
-          <input  className='input' type='text' onChange={(evt)=>setSearch(evt.target.value)} placeholder='Search'/>
-        </div>
-      </div> */}
+     
 
-<Navbar key={"md"} expand={"md"} className="bg-body-tertiary mb-3 menuList" style={{"backgroundColor":"white"}}>
+<Navbar  key={"sm"} expand={"sm"} className="bg-body-tertiary mb-3 menuList" style={{"backgroundColor":"white"}}>
           <Container  fluid>
            
-            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${"md"}`} />
+            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${"sm"}`} />
             <Navbar.Offcanvas
-              id={`offcanvasNavbar-expand-${"md"}`}
-              aria-labelledby={`offcanvasNavbarLabel-expand-${"md"}`}
+              id={`offcanvasNavbar-expand-${"sm"}`}
+              aria-labelledby={`offcanvasNavbarLabel-expand-${"sm"}`}
               placement="end"
+              
             >
              
               <Offcanvas.Body>
+              <Button className='goBack' onClick={goBack}>Home</Button>
                 <Nav className="menuList">
                 {menuList.map((item,idx)=>(<Nav.Link key={idx}>{item}</Nav.Link>))}
                  
@@ -102,8 +102,10 @@ const searchByWord = (event) => {
                     className="me-2 searchInput"
                     aria-label="Search"
                     onKeyDown={(event)=>searchByWord(event)}
+                    
                   />
-                  <Button variant="outline-success">Search</Button>
+                  <Button className='searchBtn' variant="outline-danger">Search</Button>
+                
                 </Form>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
