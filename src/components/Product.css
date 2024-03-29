@@ -22,4 +22,12 @@ margin-top:20px;
     align-items: center;
     flex-direction: column;
   }
+  .ProductCard:hover{
+ 
+  position:fixed;
+    width:420px;
+   border:none;
+   color:black;
+  
+  }
 } 
