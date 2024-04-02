@@ -19,7 +19,7 @@ dispatch(getProductAll())
 },[])
 console.log(products,'result')
   useEffect(()=>{
-
+console.log(searchQuery,'searchQuery')
 
 if(products && searchQuery){
   let filterLists = products?.filter((item)=>{
