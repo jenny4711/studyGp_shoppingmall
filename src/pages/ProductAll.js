@@ -1,33 +1,38 @@
 import React ,{useState,useEffect}from 'react';
-import { useAllProductQuery } from '../hooks/useGetProduct';
+
 import ProductCard from '../components/ProductCard';
 import { Container, Row ,Col} from 'react-bootstrap';
 import { useSearchParams } from 'react-router-dom';
+import { useDispatch,useSelector } from 'react-redux';
+import { getProductAll } from '../redux/actions/productAction';
 import './ProductAll.css'
 const ProductAll = () => {
+  const dispatch=useDispatch()
   const [productList,setProductList]=useState([])
   const [query,setQuery]=useSearchParams();
-  const {data}=useAllProductQuery()
+  const {products} = useSelector(state=>state.product)
+  
   let searchQuery = query.get("q") || null
 
-useEffect(()=>{},[])
-
+useEffect(()=>{
+dispatch(getProductAll())
+},[])
+console.log(products,'result')
   useEffect(()=>{
 
-let lists=data?.data
-if(lists && searchQuery){
-  let filterLists = lists.filter((item)=>{
+
+if(products && searchQuery){
+  let filterLists = products?.filter((item)=>{
     let name = item.name.toLowerCase()
     return name.includes(searchQuery);
   })
  
   setProductList(filterLists)
 }else{
-  setProductList(data?.data)
+  setProductList(products)
 }
 
-
-  },[searchQuery,data])
+  },[searchQuery,products])
 
   return (
     <div className='ProductAll'>

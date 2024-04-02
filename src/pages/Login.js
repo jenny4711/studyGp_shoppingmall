@@ -1,19 +1,31 @@
-import React ,{useState}from 'react';
+import React ,{useState,useEffect}from 'react';
 import {  useNavigate } from 'react-router-dom';
+import { login } from '../redux/actions/userAction';
+import { useDispatch,useSelector } from 'react-redux';
 import './Login.css'
 const Login = ({username,pw,setUsername,setPw,logIn,setLogIn}) => {
-
+const dispatch=useDispatch()
 const[notice,setNotice]=useState("")
 const navigate = useNavigate()
+const {error,user} = useSelector(state=>state.user)
+console.log(user,'uer')
+useEffect(()=>{
+  dispatch(login({username,pw}))
+},[username,pw])
+
 const handleLogin=(e)=>{
-  setNotice("")
-e.preventDefault();
-if(username === 'jenny' && pw === '1234'){
-  setLogIn(true)
-  navigate('/')
-}else{
-setNotice("Wrong Password or Username.Please try again!")
-}
+  e.preventDefault();
+  if(user !== null){
+    setLogIn(true)
+    navigate('/')
+  }else{
+    setLogIn(false)
+    setNotice(error)
+  }
+
+
+ 
+
 }
   return (
     <div className='Login'>

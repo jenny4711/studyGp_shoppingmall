@@ -1,5 +1,5 @@
 import React ,{useState,useEffect}from 'react';
-import { Person ,Search} from 'react-bootstrap-icons';
+import { Person } from 'react-bootstrap-icons';
 import { useNavigate ,Link} from 'react-router-dom';
 import { useSearchParams } from 'react-router-dom';
 import './NavBar.css'
@@ -9,9 +9,9 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import Login from '../pages/Login';
+
 const NavBar = ({logIn,setLogIn}) => {
   const navigation=useNavigate()
   const [search,setSearch]=useState("")
@@ -28,13 +28,13 @@ useEffect(()=>{
 
 
 const searchByWord = (event) => {
-  console.log(event.key); // 디버깅을 위해 어떤 키가 눌렸는지 출력
+  console.log(event.key); 
   if (event.key === "Enter") {
     event.preventDefault();
     let keyword = event.target.value;
     setSearch(keyword)
     console.log('keyword', keyword);
-    // Enter 키 입력시 추가로 수행할 로직
+    
   }
 };
 

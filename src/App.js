@@ -1,5 +1,5 @@
 import{Routes,Route} from 'react-router-dom'
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
 import './App.css';
 import ProductAll from './pages/ProductAll';
 import ProductDetail from './pages/ProductDetail';
@@ -7,6 +7,8 @@ import Login from './pages/Login';
 import NavBar from './components/NavBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PrivateRoute from './routes/PrivateRoute';
+import { getProductAll } from './redux/actions/productAction';
+import { useDispatch } from 'react-redux';
 //1.전체 상품페이지, 로인, 상품상세 페이지
 //1-1 navigation bar
 //2.전체 상품페이지에서는 전체 상품을 볼수있다
@@ -17,9 +19,14 @@ import PrivateRoute from './routes/PrivateRoute';
 //7.상품을 검색할수있다
 
 function App() {
+  const dispatch=useDispatch()
   const [logIn,setLogIn]=useState(false)
   const [username,setUsername]=useState("")
 const [pw,setPw]=useState("")
+
+// useEffect(()=>{
+//   dispatch(getProductAll())
+//   },[dispatch])
 
   return (
     <div className="App">
